@@ -9,6 +9,11 @@ const Login = () => {
   const [password, setPassword] = useState('');
 
   const navigation = useNavigation(); // Initialize navigation hook
+   
+  const LandingPage = () => {
+    navigation.navigate('Landingpage');
+  };
+
 
   const HomeScreen = () => {
     // Basic authentication logic (replace with your actual authentication process)
@@ -25,8 +30,8 @@ const Login = () => {
 
   return (
     <View style={styles.container}>
-      <View style={{ position: 'absolute', top: 10, left: 10 }}>
-          <Ionicons name='arrow-back-outline' size={30} />
+      <View style={{ position: 'absolute', top: 10, left: 10, marginTop:50}}>
+          <Ionicons name='arrow-back-outline' size={30}  onPress={LandingPage}/>
       </View>
       <Text style={styles.head}>HC TECHI</Text>
 
@@ -40,7 +45,7 @@ const Login = () => {
       />
       <TextInput
         style={styles.input}
-        
+        styles={{textDecorationLine:'underline'}}
         placeholder="Password" 
         placeholderTextColor={'#fff'}
         onChangeText={text => setPassword(text)}

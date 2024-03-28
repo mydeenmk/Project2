@@ -9,6 +9,8 @@ import { BaseNavigationContainer, NavigationContainer,createBottomTabNavigator} 
 import LandingPage from './screens/landing';
 import HomeScreen from './screens/homescreen';
 import Cart from './screens/cart';
+import { ViewProps } from 'react-native';
+import { ViewPropTypes } from 'deprecated-react-native-prop-types';
 
 
 const Stack = createNativeStackNavigator();
@@ -20,8 +22,8 @@ const App = () => {
     
      <Stack.Screen name='Landingpage' component={LandingPage} options={{headerShown:false}}/>
        
-        <Stack.Screen name="Login" component={Login} />
-        <Stack.Screen name='Home' component={HomeScreen}/>
+        <Stack.Screen name="Login" component={Login} options={{headerShown:false}} />
+        <Stack.Screen name='Home' component={HomeScreen} options={{headerShown:false}}/>
         <Stack.Screen name='Cart' component={Cart}/>
       </Stack.Navigator>
     </NavigationContainer>

@@ -34,6 +34,7 @@ const styles = StyleSheet.create({
   },
   button:{
     marginBottom:50,
+    backgroundColor:'#47624f'
   }
 });
  
