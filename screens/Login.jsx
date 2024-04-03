@@ -128,7 +128,6 @@
 
 // export default Login;
 
-
 import React, { useState } from 'react';
 import { View, TextInput, Button, StyleSheet, Text, TouchableOpacity, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
@@ -158,6 +157,10 @@ const Login = () => {
     try {
       const response = await axios.post('http://localhost:3000/api/verify-otp', { otp });
       Alert.alert('OTP Verified', response.data.message);
+      if (response.data.success) {
+        // Navigate to HomeScreen upon successful verification
+        HomeScreen();
+      }
     } catch (error) {
       Alert.alert('Error', 'Invalid OTP');
     }
@@ -216,7 +219,7 @@ const Login = () => {
         value={otp}
         onChangeText={setOtp}
       />
-      <Button title="Verify OTP" onPress={handleVerifyOTP} />
+      <Button title="Verify OTP" onPress={handleVerifyOTP} style={{marginBottom:20}} />
 
       <TouchableOpacity style={styles.button} onPress={HomeScreen}>
         <Text style={styles.buttonText}>LOGIN</Text>
